@@ -4,3 +4,4 @@ cd folder
 initialize = git init
 check files by ls
 check status = git status
+
