@@ -5,3 +5,4 @@ initialize = git init
 check files by ls
 check status = git status
 
+git hub is version control manager 
