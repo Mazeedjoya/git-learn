@@ -22,6 +22,14 @@ show databases;
 ```
 use wecodeacademy;
 ```
+### Show Databases
+```
+show databases;
+```
+### Drop Database
+```
+drop database name;
+```
 
 ### Create Table
 
@@ -120,7 +128,11 @@ select * from student order by name desc;
 select * from student where not studentid = 2;
 
 SET SQL_SAFE_UPDATES=0;
+```
 
+### Delete 
+
+```
 delete from student where Name = 'Shera';
 
 delete from student;
@@ -169,11 +181,12 @@ select count(*), fathername from student group by fathername;
 
 select count(*), fathername, mobile from student group by fathername, mobile;
 ```
+
 ### COUNT ,MAX AND ALTER
 ```
 select *  from student group by name having count(name) >= 3;
 
-select *  from student having max(studentid) > 3;--notes
+select *  from student having max(studentid) > 3;  --notes
 
 alter table student add course varchar(255) not null;
 
@@ -185,3 +198,31 @@ ALTER TABLE student MODIFY COLUMN pincode varchar(255);
 
 ALTER TABLE student RENAME COLUMN pincode TO zipcode;
 ```
+
+Error Code: 1055. Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'school.student.student_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+ 
+ ###  nhi chali
+ select * from student group by 
+select *  from student group by name having count(name) >= 3;
+select name from student having max(student_id)>3;
+
+
+create table student (
+`stuId` integer primary key auto_increment not null,
+`stuName` varchar(30) not null,
+`fName` varchar(30),
+`course` varchar(20) not null,
+`email` varchar(40) not null,
+`mobile` bigint,
+`address` varchar(55) not null
+);
+
+create table fees (
+ `feeid` integer UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT, 
+ `amount` bigint,
+ `month` varchar(255),
+ `stuId` integer
+);
+
+
+    
