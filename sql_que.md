@@ -114,3 +114,74 @@ How to get the list of all fees records sorted by the fee amount in descending o
 ```
 select * from fees where stuId = 2 order by amount desc;
 ```
+### student
+    pincode
+    city
+    state
+    country
+    mode:  online/offlie
+    minor: true/false
+
+    @@@
+    student 10 records
+fee table 20 records
+result 15 records
+
+### result
+    id
+    totalmarks 100
+    obtainedmarks 80
+    subject nodejs
+    testdate date
+    studentid foreign key
+
+
+### questions 
+
+1. khan
+
+select * from student where name like '%khan%';
+
+2. where studentid between 5 and 10
+
+select * from student where stuId between 5 and 10;
+
+3. Rename fathername column to mothername
+
+ALTER TABLE student RENAME COLUMN fName TO mName;
+
+4. kaunse month me sbse jyada fees aayi hai
+
+ select month, sum(amount) as total from fees group by month order by total desc limit 1;
+
+5. kaunse month me sbse kam fees aayi hai
+
+select month, sum(amount) as total from fees group by month order by total asc limit 1;
+
+6. sbse jyada fees kis student ne di hai
+
+select stuId, sum(amount) as total from fees group by stuId order by total desc limit 1;
+
+ CHECK => select * from student where stuId = 10;
+
+7. sbse kam fees kis student ne di hai
+
+select stuID, sum(amount) as total from fees group by stuId order by total asc limit 1;
+
+select * from student where stuId = 7;
+
+8. aise kaunse student hai jinhone ek b bar fee ni di hai
+
+select distinct stuId from fees;
+
+select * from student where stuId not in (3, 4, 7);
+
+9. aise kaunse students hai jinka mobile and fathername ni hai db me
+
+select * from student where mobile is null and fName is null;
+
+10. vo sare students ka record delete krdo jinhone koi fees ni di hai
+
+select distinct stuId from fees;
+
+delete from student where studentid not in (15,17,18);
